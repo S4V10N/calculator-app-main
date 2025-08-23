@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+}
+:root {
+      /* Backgrounds */
+    --bg-main: hsl(222, 26%, 31%);
+    --bg-toggle: hsl(223, 31%, 20%);
+    --bg-screen: hsl(224, 36%, 15%);
+
+    /* Keys */
+    --key-primary-bg: hsl(225, 21%, 49%);
+    --key-primary-bg-hover: hsl(225, 31%, 69%);
+    --key-primary-shadow: hsl(224, 28%, 35%);
+
+    --key-accent-bg: hsl(6, 63%, 50%);
+    --key-accent-bg-hover: hsl(6, 73%, 70%);
+    --key-accent-shadow: hsl(6, 70%, 34%);
+
+    --key-accent-bg-two: hsl(25, 98%, 40%);
+    --key-accent-bg-three: hsl(176, 100%, 44%);
+
+    --key-light-bg: hsl(0, 0%, 90%);
+    --key-light-bg-hover: hsl(0, 0%, 100%);
+    --key-light-shadow: hsl(28, 16%, 65%);
+
+    /* Text */
+    --text-dark: hsl(221, 14%, 31%);
+    --text-light: hsl(0, 100%, 100%);
+
+    /* ## Typography */
+    --size: 32px;
+    --Font-weight: 700;
+    --Font-family: "League Spartan", sans-serif;
+    --text: hsl(0, 100%, 100%);
+}
+.theme-2 {
+    /* Backgrounds */
+    --bg-main: hsl(0, 0%, 90%);
+    --bg-toggle: hsl(0, 5%, 81%);
+    --bg-screen: hsl(0, 0%, 93%);
+
+    /* Keys */
+    --key-primary-bg: hsl(185, 42%, 37%);
+    --key-primary-bg-hover: hsl(185, 52%, 57%);
+    --key-primary-shadow: hsl(185, 58%, 25%);
+
+    --key-accent-bg: hsl(25, 98%, 40%);
+    --key-accent-bg-hover: hsl(25, 100%, 60%);
+    --key-accent-shadow: hsl(25, 99%, 27%);
+
+    --key-light-bg-hover: hsl(0, 0%, 100%);
+    --key-light-bg: hsl(0, 0%, 90%);
+    --key-light-shadow: hsl(35, 11%, 61%);
+
+    /* Text */
+    --text-dark: hsl(60, 10%, 19%);
+    --text-light: hsl(0, 100%, 100%);
+    --text: hsl(198, 20%, 13%);
+}
+.theme-3 {
+    --bg-main: hsl(268, 75%, 9%);
+    --bg-toggle: hsl(268, 71%, 12%);
+    --bg-screen: hsl(268, 71%, 12%);
+
+    --key-primary-bg: hsl(281, 89%, 26%);
+    --key-primary-bg-hover: hsl(281, 100%, 46%);
+    --key-primary-shadow: hsl(285, 91%, 52%);
+
+    --key-accent-bg: hsl(176, 100%, 44%);
+    --key-accent-bg-hover: hsl(176, 100%, 64%);
+    --key-accent-shadow: hsl(177, 92%, 70%);
+
+    --key-light-bg: hsl(268, 47%, 21%);
+    --key-light-bg-hover: hsl(268, 47%, 41%);
+    --key-light-shadow: hsl(290, 70%, 36%);
+
+    --text-dark: hsl(52, 100%, 62%);
+    --text-light: hsl(0, 0%, 0%);
+    --text: hsl(52, 100%, 62%);
+}
+
+body {
+    font-family: var(--Font-family);
+    background-color: var(--bg-main);
+    font-weight: var(--Font-weight);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+main {
+    width: fit-content;
+}
+.calc__display,
+.calc__buttons {
+    font-size: 3.2rem;
+}
+.calc {
+    padding: 3rem;
+    width: 37rem;
+    height: 71.3rem;
+}
+.calc__header,
+.calc__theme,
+.calc--themes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.calc__header h1 {
+    font-size: 3.2rem;
+}
+.calc__theme {
+    gap: 3.5rem;
+    transform: translateX(-0.6rem);
+}
+.calc__theme h2 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.calc--themes {
+    gap: 0.5rem;
+}
+.calc--themes div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+label {
+    font-size: 1.4rem;
+}
+input[type="radio"] {
+    width: 2rem;
+    height: 2rem;
+    appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+input[type="radio"]:hover, 
+input[type="radio"]:active {
+    filter: brightness(1.3);
+}
+input[type="radio"]:checked {
+    background-color: var(--key-accent-bg);
+}
+.calc--themes :nth-child(2) input[type="radio"]:checked {
+    background-color: var(--key-accent-bg-two);
+}
+.calc--themes :nth-child(3) input[type="radio"]:checked {
+    background-color: var(--key-accent-bg-three);
+}
+.calc--themes::before {
+    content: '';
+    width: 8.5rem;
+    height: 3rem;
+    background-color: var(--bg-toggle);
+    position: absolute;
+    z-index: -1;
+    transform: translateY(0.5rem) translateX(-0.75rem);
+    border-radius: 2rem;
+}
+.calc__header {
+    margin-bottom: 3.5rem;
+}
+.calc__display {
+    background-color: var(--bg-screen);
+    height: 10rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 2rem;
+    margin-bottom: 2.5rem;
+}
+.calc__display p {
+    font-size: 5rem;
+    width: 100%;
+    white-space: nowrap;
+    text-align: right;
+    overflow-x: hidden;
+    letter-spacing: 0.2rem;
+}
+.calc__buttons {
+    background-color: var(--bg-toggle);
+    border-radius: 1rem;
+    padding: 2rem 2rem 2.5rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    justify-content: space-between;
+    gap: 1.5rem 1rem;
+    margin-bottom: 4rem;
+}
+.numbers,
+.operators {
+    color: var(--text-dark);
+    font-size: 3.5rem;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: var(--Font-weight);
+    height: 6rem;
+    border-radius: 1rem;
+    background-color: var(--key-light-bg);
+    box-shadow: 0rem 0.5rem var(--key-light-shadow);
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.commands {
+    background-color: var(--key-primary-bg);
+    box-shadow: 0rem 0.5rem var(--key-primary-shadow);
+}
+.buttons--result {
+    background-color: var(--key-accent-bg);
+    box-shadow: 0rem 0.5rem var(--key-accent-shadow);
+    grid-column: span 2;
+    width: 100%;
+    color: var(--text-light);
+}
+.buttons--reset {
+    grid-column: span 2;
+    width: 100%;
+}
+.buttons--reset,
+.buttons--del {
+    color: white;
+}
+.calc__header,
+.calc__display {
+    color: var(--text);
+}
+.buttons--del,
+.buttons--reset,
+.buttons--result {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+.buttons--result:active,
+.buttons--result:hover {
+    background-color: var(--key-accent-bg-hover);
+}
+.buttons--del:active,
+.buttons--del:hover,
+.buttons--reset:active,
+.buttons--reset:hover {
+    background-color: var(--key-primary-bg-hover);
+}
+.numbers:active,
+.numbers:hover,
+.operators:hover,
+.operators:active {
+    background-color: var(--key-light-bg-hover);
+}
+.attribution {
+    font-size: 1.6rem;
+    font-weight: bold;
+    align-self: flex-end;
+    justify-self: center;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+    color: var(--key-primary-bg-hover);
+}
+.attribution a { 
+    text-decoration: none;
+    transition: 1s ease-in-out;
+    color: var(--key-accent-bg);
+}
+.attribution a:hover,
+.attribution a:active {
+    filter: brightness(1.3);
+}
+@media (min-width: 600px) {
+    .calc {
+        width: 55rem;
+    }
+    .calc__buttons {
+        gap: 2.5rem 2rem;
+    }
+}
