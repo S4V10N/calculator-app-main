@@ -32,14 +32,6 @@ themeThree.addEventListener("click", () => {
     localStorage.setItem("theme", "theme-3");
 });
 
-// === CALC FUNCTION (unused but kept from original) ===
-const calc = (a, b, operator) => {
-    if (operator === "+") return a + b;
-    if (operator === "-") return a - b;
-    if (operator === "/") return a / b;
-    if (operator === "x") return a * b;
-};
-
 // === APPEND VALUES ===
 function appendValue(val) {
     if (
@@ -63,7 +55,11 @@ function appendValue(val) {
 
 // === ACTIONS ===
 del.addEventListener("click", () => {
-    result.textContent = result.textContent.slice(0, -1);
+    if (result.textContent === "error") {
+        result.textContent = "";
+    } else {
+        result.textContent = result.textContent.slice(0, -1);
+    }
 });
 
 reset.addEventListener("click", () => {
@@ -74,25 +70,20 @@ reset.addEventListener("click", () => {
 displayResult.addEventListener("click", () => {
     try {
         let expression = result.textContent;
-
-        // Replace "x" with "*" for multiplication
         expression = expression.replace(/x/g, "*");
 
-        // Only allow safe characters
         if (!/^[0-9+\-*/.() ]+$/.test(expression)) {
             throw new Error("Syntax Error");
         }
 
-        // Evaluate expression safely
         let answer = Function('"use strict"; return (' + expression + ")")();
 
-        // Handle division by zero
         if (!isFinite(answer)) {
             throw new Error("error");
         }
 
         result.textContent = answer;
     } catch (e) {
-        result.textContent = e.message;
+        result.textContent = "error";
     }
 });

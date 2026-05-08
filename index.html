@@ -1,68 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./index.js" defer></script>
-  <title>Frontend Mentor | Calculator app</title>
-</head>
-<body>
-  <main>
-    <section class="calc">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+        <script src="./index.js" defer></script>
+        <title>Frontend Mentor | Calculator app</title>
+    </head>
+    <body>
+        <main>
+            <section class="calc">
+                <section class="calc__header">
+                    <h1>calc</h1>
+                    <div class="calc__theme">
+                        <h2>theme</h2>
 
-      <section class="calc__header">
-        <h1>calc</h1>
-        <div class="calc__theme">
-          <h2>theme</h2>
+                        <div class="calc--themes">
+                            <div>
+                                <label for="theme__one">1</label
+                                ><input
+                                    type="radio"
+                                    name="themes"
+                                    id="theme__one"
+                                    value="theme one"
+                                    checked
+                                />
+                            </div>
+                            <div>
+                                <label for="theme__two">2</label
+                                ><input
+                                    type="radio"
+                                    name="themes"
+                                    id="theme__two"
+                                    value="theme two"
+                                />
+                            </div>
+                            <div>
+                                <label for="theme__three">3</label
+                                ><input
+                                    type="radio"
+                                    name="themes"
+                                    id="theme__three"
+                                    value="theme three"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-          <div class="calc--themes">
-            <div>
-              <label for="theme__one">1</label><input type="radio" name="themes" id="theme__one" value="theme one" checked>
+                <section class="calc__display">
+                    <p id="result" readonly></p>
+                </section>
+
+                <section class="calc__buttons">
+                    <div class="buttons numbers" onclick="appendValue('7')">
+                        <p>7</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('8')">
+                        <p>8</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('9')">
+                        <p>9</p>
+                    </div>
+                    <div class="buttons commands buttons--del" id="delete">
+                        <p>del</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('4')">
+                        <p>4</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('5')">
+                        <p>5</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('6')">
+                        <p>6</p>
+                    </div>
+                    <div class="buttons operators" onclick="appendValue('+')">
+                        <p>+</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('1')">
+                        <p>1</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('2')">
+                        <p>2</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('3')">
+                        <p>3</p>
+                    </div>
+                    <div class="buttons operators" onclick="appendValue('-')">
+                        <p>-</p>
+                    </div>
+                    <div class="buttons operators" onclick="appendValue('.')">
+                        <p>.</p>
+                    </div>
+                    <div class="buttons numbers" onclick="appendValue('0')">
+                        <p>0</p>
+                    </div>
+                    <div class="buttons operators" onclick="appendValue('/')">
+                        <p>/</p>
+                    </div>
+                    <div class="buttons operators" onclick="appendValue('x')">
+                        <p>x</p>
+                    </div>
+                    <div class="buttons commands buttons--reset" id="reset">
+                        <p>reset</p>
+                    </div>
+                    <div
+                        class="buttons commands buttons--result"
+                        id="showResults"
+                    >
+                        <p>=</p>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <div class="attribution">
+                Challenge by
+                <a
+                    href="https://www.frontendmentor.io?ref=challenge"
+                    target="_blank"
+                    >Frontend Mentor</a
+                >
+                Coded by <a href="https://linktr.ee/Dev_Savion">Savion</a>
             </div>
-            <div>
-              <label for="theme__two">2</label><input type="radio" name="themes" id="theme__two" value="theme two">
-            </div>
-            <div>
-              <label for="theme__three">3</label><input type="radio" name="themes" id="theme__three" value="theme three">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="calc__display">
-        <p id="result" readonly></p>
-      </section>
-
-      <section class="calc__buttons">
-        <div class="buttons numbers" onclick="appendValue('7')"><p>7</p></div>
-        <div class="buttons numbers" onclick="appendValue('8')"><p>8</p></div>
-        <div class="buttons numbers" onclick="appendValue('9')"><p>9</p></div>
-        <div class="buttons commands buttons--del" id="delete"><p>del</p></div>
-        <div class="buttons numbers " onclick="appendValue('4')"><p>4</p></div>
-        <div class="buttons numbers" onclick="appendValue('5')"><p>5</p></div>
-        <div class="buttons numbers" onclick="appendValue('6')"><p>6</p></div>
-        <div class="buttons operators" onclick="appendValue('+')"><p>+</p></div>
-        <div class="buttons numbers" onclick="appendValue('1')"><p>1</p></div>
-        <div class="buttons numbers" onclick="appendValue('2')"><p>2</p></div>
-        <div class="buttons numbers" onclick="appendValue('3')"><p>3</p></div>
-        <div class="buttons operators" onclick="appendValue('-')"><p>-</p></div>
-        <div class="buttons operators" onclick="appendValue('.')"><p>.</p></div>
-        <div class="buttons numbers" onclick="appendValue('0')"><p>0</p></div>
-        <div class="buttons operators" onclick="appendValue('/')"><p>/</p></div>
-        <div class="buttons operators" onclick="appendValue('x')"><p>x</p></div>
-        <div class="buttons commands buttons--reset" id="reset"><p>reset</p></div>
-        <div class="buttons commands buttons--result" id="showResults"><p>=</p></div>
-      </section>
-    </section>
-  </main>
-
-  <footer>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> 
-      Coded by <a href="https://linktr.ee/Dev_Savion">Savion</a>
-    </div>
-  </footer>
-</body>
+        </footer>
+    </body>
 </html>
